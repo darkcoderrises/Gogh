@@ -1,0 +1,2 @@
+#!/bin/bash
+gsettings set org.cinnamon.desktop.background picture-uri "'file:///home/harshil/wallpapers/$1.jpg'"

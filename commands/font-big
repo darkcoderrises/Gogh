@@ -1,0 +1,4 @@
+#!/bin/bash
+uuid=`gsettings get org.gnome.Terminal.ProfilesList default`
+uuid=${uuid:1:${#uuid}-2}
+dconf write /org/gnome/terminal/legacy/profiles:/:$uuid/font "'Monospace 10'"

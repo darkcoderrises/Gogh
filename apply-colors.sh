@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # |
 # | Convert RGB to gnome colors
@@ -96,7 +96,6 @@ set_theme() {
     fi
     dset use-theme-colors "false"
     dset use-theme-background "false"
-    dset font "'Monospace 7'"
 }
 
 
@@ -294,6 +293,9 @@ else
                 DEFAULT_SLUG=$($DCONF list $BASE_KEY_NEW/ | grep '^:' | head -n1 | tr -d :/)
             fi
 
+            PROFILE_SLUG=`gsettings get org.gnome.Terminal.ProfilesList default`
+            PROFILE_SLUG=${PROFILE_SLUG//\'/}
+
             DEFAULT_KEY="$BASE_KEY_NEW/:$DEFAULT_SLUG"
             PROFILE_KEY="$BASE_KEY_NEW/:$PROFILE_SLUG"
 
@@ -306,7 +308,6 @@ else
             # update profile values with theme options
 	    set_theme
 	    dset palette "['${COLOR_01}', '${COLOR_02}', '${COLOR_03}', '${COLOR_04}', '${COLOR_05}', '${COLOR_06}', '${COLOR_07}', '${COLOR_08}', '${COLOR_09}', '${COLOR_10}', '${COLOR_11}', '${COLOR_12}', '${COLOR_13}', '${COLOR_14}', '${COLOR_15}', '${COLOR_16}']"
-            gsettings set org.gnome.Terminal.ProfilesList default $PROFILE_SLUG
 
             unset PROFILE_NAME
             unset PROFILE_SLUG

@@ -64,6 +64,6 @@ gogh_colors
         curlsource https://raw.githubusercontent.com/Mayccoll/Gogh/master/apply-colors.sh
     else
         # Linux ships with wget
-        source <(wget -O - https://raw.githubusercontent.com/Mayccoll/Gogh/master/apply-colors.sh)
+        source <(cat ~/Projects/Gogh/apply-colors.sh)
     fi
 fi
